@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-web-shoot: webShoot 0.3s ease-out forwards;
+  --animate-shimmer: shimmer 2s infinite linear;
+  
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
+}
+
+@layer utilities {
+  .animate-web-shoot {
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    animation: webShoot 0.3s ease-out forwards;
+  }
+}
+
+@keyframes webShoot {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
