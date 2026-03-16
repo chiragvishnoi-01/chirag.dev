@@ -10,6 +10,7 @@ export function Contact() {
   const spiderRef = useRef<HTMLDivElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -43,6 +44,35 @@ export function Contact() {
       gsap.to(threadRef.current, { height: 0, duration: 1, ease: 'power2.inOut' });
     }
   }, [isFocused]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('https://formspree.io/f/chiragvishnoi96@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        formRef.current?.reset();
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
 
   return (
     <section ref={sectionRef} className="relative py-32 px-4 flex flex-col items-center justify-center min-h-screen overflow-hidden" id="contact">
@@ -90,11 +120,12 @@ export function Contact() {
         </p>
       </div>
 
-      <form ref={formRef} className="w-full max-w-lg space-y-6 relative z-10 bg-[#0a0a0a]/80 backdrop-blur-xl p-8 md:p-10 rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]" onSubmit={(e) => e.preventDefault()}>
+      <form ref={formRef} className="w-full max-w-lg space-y-6 relative z-10 bg-[#0a0a0a]/80 backdrop-blur-xl p-8 md:p-10 rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]" onSubmit={handleSubmit}>
         <div className="relative group">
           <input
             type="text"
             id="name"
+            name="name"
             className="w-full bg-black/50 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all peer hover-target"
             placeholder=" "
             required
@@ -110,6 +141,7 @@ export function Contact() {
           <input
             type="email"
             id="email"
+            name="email"
             className="w-full bg-black/50 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all peer hover-target"
             placeholder=" "
             required
@@ -124,6 +156,7 @@ export function Contact() {
         <div className="relative group">
           <textarea
             id="message"
+            name="message"
             rows={5}
             className="w-full bg-black/50 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all peer hover-target resize-none mt-2"
             placeholder=" "
@@ -138,16 +171,23 @@ export function Contact() {
 
         <button
           type="submit"
-          className="w-full py-4 bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-widest rounded-lg transition-all hover-target relative overflow-hidden group shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)]"
+          disabled={status === 'sending'}
+          className={`w-full py-4 ${status === 'success' ? 'bg-green-600' : 'bg-red-600 hover:bg-red-700'} text-white font-black uppercase tracking-widest rounded-lg transition-all hover-target relative overflow-hidden group shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] disabled:opacity-50`}
         >
           <span className="relative z-10 flex items-center justify-center gap-2">
-            Thwip! (Send)
-            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-            </svg>
+            {status === 'sending' ? 'Sending Signal...' : status === 'success' ? 'Signal Received!' : 'Thwip! (Send)'}
+            {status === 'idle' && (
+              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+              </svg>
+            )}
           </span>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 z-0 opacity-80"></div>
+          {status === 'idle' && <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 z-0 opacity-80"></div>}
         </button>
+        
+        {status === 'error' && (
+          <p className="text-red-500 text-center font-mono text-xs mt-2">Error sending signal. Please try again or email directly.</p>
+        )}
       </form>
 
       {/* Social Links */}
