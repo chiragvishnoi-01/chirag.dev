@@ -53,7 +53,7 @@ export function Contact() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('https://formspree.io/chiragvishnoi96@gmail.com', {
+      const response = await fetch('https://formspree.io/f/chiragvishnoi96@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
