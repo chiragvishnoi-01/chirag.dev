@@ -201,6 +201,36 @@ export function Hero() {
           <span className="text-blue-500">&</span>
           <span className="text-white">WordPress Dev</span>
         </div>
+
+        {/* Social Quick Links */}
+        <div className="mt-8 flex items-center gap-8 z-10">
+          <a 
+            href="https://instagram.com/chiragvishnoi01" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative flex items-center justify-center p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-full"></div>
+            <svg className="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/chiragvishnoi01/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative flex items-center justify-center p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110"
+          >
+            <div className="absolute inset-0 bg-[#0077b5] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-full"></div>
+            <svg className="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
       </div>
 
       {/* Cute Spidey at bottom */}
