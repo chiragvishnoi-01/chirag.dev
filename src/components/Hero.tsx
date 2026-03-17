@@ -43,11 +43,11 @@ export function Hero() {
 
     const drawParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particles.forEach((p, index) => {
         p.x += p.vx;
         p.y += p.vy;
-        
+
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
@@ -66,8 +66,8 @@ export function Hero() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist / 150 * 0.1})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 - dist / 150 * 0.25})`;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
@@ -123,11 +123,11 @@ export function Hero() {
 
       // Spidey Eyes Logic
       const spideyCenterX = window.innerWidth / 2;
-      const spideyCenterY = window.innerHeight - 40; 
-      
+      const spideyCenterY = window.innerHeight - 40;
+
       const angle = Math.atan2(e.clientY - spideyCenterY, e.clientX - spideyCenterX);
       const distance = Math.min(8, Math.sqrt(Math.pow(e.clientX - spideyCenterX, 2) + Math.pow(e.clientY - spideyCenterY, 2)) * 0.015);
-      
+
       const eyeOffsetX = Math.cos(angle) * distance;
       const eyeOffsetY = Math.sin(angle) * distance;
 
@@ -171,48 +171,48 @@ export function Hero() {
 
       {/* Marvel Style Logo */}
       <div className="z-10 flex flex-col items-center justify-center w-full px-4" style={{ transformStyle: 'preserve-3d' }}>
-        <div 
+        <div
           ref={logoRef}
           className="relative group cursor-pointer"
         >
           {/* Glowing shadow */}
           <div className="absolute inset-0 bg-[#ed1d24] blur-[50px] opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-          
+
           <div className="bg-[#ed1d24] px-4 py-1 md:px-6 md:py-2 inline-block relative overflow-hidden shadow-[0_10px_30px_rgba(237,29,36,0.4)]">
             {/* Halftone texture overlay */}
             <div className="absolute inset-0 opacity-20 mix-blend-multiply pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
-            
+
             {/* Shine effect */}
             <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-45deg] animate-shimmer pointer-events-none"></div>
-            
-            <h1 
-              className="text-6xl md:text-[9rem] leading-[0.9] font-black font-display text-white tracking-[-0.04em] relative z-10 uppercase" 
+
+            <h1
+              className="text-6xl md:text-[9rem] leading-[0.9] font-black font-display text-white tracking-[-0.04em] relative z-10 uppercase"
               style={{ transform: 'scaleY(1.1)' }}
             >
-              chirag.DEv
+              Chirag.Dev
             </h1>
           </div>
         </div>
-        
+
         {/* Subtitle */}
         <div className="mt-12 md:mt-16 flex items-center gap-3 md:gap-6 text-xs md:text-sm font-bold tracking-[0.4em] uppercase z-10 drop-shadow-md">
           <span className="text-[#ed1d24]">Full Stack</span>
           <span className="text-white">Developer</span>
           <span className="text-blue-500">&</span>
-          <span className="text-white">WordPress Dev</span>
+          <span className="text-white">WordPress Wizard</span>
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-8 md:gap-12 z-10 px-4">
           {[
-            { name: 'Instagram', url: 'https://instagram.com/chiragvishnoi01', color: 'hover:text-pink-500' },
-            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/chiragvishnoi01/', color: 'hover:text-blue-500' },
+            { name: 'Instagram', url: 'https://instagram.com/chiragvishnoi01', color: 'text-pink-500' },
+            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/chiragvishnoi01/', color: 'text-blue-500' },
           ].map((social) => (
             <a
               key={social.name}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-gray-500 font-display text-xl md:text-2xl uppercase tracking-tighter transition-all duration-300 ${social.color} hover:scale-110 cursor-pointer`}
+              className={`font-display text-xl md:text-2xl uppercase tracking-tighter transition-all duration-300 ${social.color} hover:brightness-125 hover:scale-110 cursor-pointer`}
             >
               {social.name}
             </a>
@@ -225,19 +225,19 @@ export function Hero() {
         <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(237,29,36,0.5)]">
           {/* Web line connecting to top */}
           <line x1="50" y1="0" x2="50" y2="20" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4 2" />
-          
+
           {/* Head */}
           <path d="M50 20 C 20 20, 15 50, 25 75 C 35 95, 45 100, 50 100 C 55 100, 65 95, 75 75 C 85 50, 80 20, 50 20 Z" fill="#ed1d24" />
-          
+
           {/* Web Pattern on Head (simplified) */}
           <path d="M50 20 L50 100 M25 75 L75 75 M30 50 L70 50 M35 35 L65 35" stroke="#880000" strokeWidth="1.5" opacity="0.6" fill="none" />
           <path d="M50 20 Q 35 50 25 75 M50 20 Q 65 50 75 75" stroke="#880000" strokeWidth="1.5" opacity="0.6" fill="none" />
-          
+
           {/* Left Eye */}
           <path d="M46 45 C 46 45, 25 35, 18 55 C 18 55, 25 70, 46 65 Z" fill="white" stroke="black" strokeWidth="2.5" strokeLinejoin="round" />
           {/* Right Eye */}
           <path d="M54 45 C 54 45, 75 35, 82 55 C 82 55, 75 70, 54 65 Z" fill="white" stroke="black" strokeWidth="2.5" strokeLinejoin="round" />
-          
+
           {/* Left Pupil */}
           <circle cx={leftEye.x} cy={leftEye.y} r="3.5" fill="black" />
           {/* Right Pupil */}
