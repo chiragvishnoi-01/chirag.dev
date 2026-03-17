@@ -49,7 +49,7 @@ export default function App() {
       <nav className="fixed top-0 left-0 w-full z-40 px-6 py-4 mix-blend-difference pointer-events-none">
         <div className="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
           <div className="font-black font-display text-2xl tracking-tighter uppercase text-white">
-            Chirag.Dev
+            chirag.dev
           </div>
           <div className="hidden md:flex gap-8 font-mono text-sm uppercase tracking-widest text-white">
             <a href="#home" className="hover:text-red-500 transition-colors hover-target">Home</a>
@@ -78,6 +78,19 @@ export default function App() {
         <Skills />
         <Blog />
         <Contact />
+        
+        {/* Footer */}
+        <footer className="py-12 px-6 border-t border-white/5 bg-black/50 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-gray-500 font-mono text-xs uppercase tracking-widest">
+              Copyright © {new Date().getFullYear()} | Made by <span className="text-white hover:text-red-500 transition-colors cursor-pointer">chirag.dev</span>
+            </div>
+            <div className="flex gap-6 font-mono text-xs uppercase tracking-widest text-gray-500">
+              <a href="#home" className="hover:text-white transition-colors">Back to Top</a>
+              <a href="#contact" className="hover:text-white transition-colors">Get in Touch</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

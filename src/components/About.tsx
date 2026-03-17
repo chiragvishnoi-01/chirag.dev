@@ -162,7 +162,7 @@ export function About() {
 
             {/* Card Body */}
             <div className="pt-28 px-8 pb-8 flex flex-col items-center text-center">
-              <h4 className="text-3xl font-black font-display text-white uppercase tracking-tighter mb-1">chirag.DEv</h4>
+              <h4 className="text-3xl font-black font-display text-white uppercase tracking-tighter mb-1">chirag.dev</h4>
               <p className="text-red-500 font-mono text-xs tracking-widest mb-6">ID: SPDR-001</p>
               
               <div className="w-full space-y-4 text-left">

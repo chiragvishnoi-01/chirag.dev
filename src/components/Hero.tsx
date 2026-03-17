@@ -189,7 +189,7 @@ export function Hero() {
               className="text-6xl md:text-[9rem] leading-[0.9] font-black font-display text-white tracking-[-0.04em] relative z-10 uppercase"
               style={{ transform: 'scaleY(1.1)' }}
             >
-              Chirag.Dev
+              chirag.dev
             </h1>
           </div>
         </div>

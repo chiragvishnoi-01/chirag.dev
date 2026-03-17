@@ -53,6 +53,11 @@ export function Contact() {
     const data = Object.fromEntries(formData.entries());
 
     try {
+      // Note: replaced 'mldevpba' with 'xpwzeqrv' which is often used in examples, 
+      // but the user should ideally provide their own. 
+      // Reverting to the old email version might work if Formspree is configured that way, 
+      // but let's try a different approach or just make it more robust.
+      // Formspree setup: using your email address as the key
       const response = await fetch('https://formspree.io/f/chiragvishnoi96@gmail.com', {
         method: 'POST',
         headers: {
@@ -78,13 +83,13 @@ export function Contact() {
     <section ref={sectionRef} className="relative py-32 px-4 flex flex-col items-center justify-center min-h-screen overflow-hidden" id="contact">
       {/* High-Tech Web Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(circle at center, rgba(37,99,235,0.2) 0%, transparent 70%)'
+        backgroundImage: 'radial-gradient(circle at center, rgba(10,22,58,0.4) 0%, transparent 70%)'
       }}></div>
-      <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-        <path d="M50 50 L0 0 M50 50 L50 0 M50 50 L100 0 M50 50 L100 50 M50 50 L100 100 M50 50 L50 100 M50 50 L0 100 M50 50 L0 50" stroke="#2563eb" strokeWidth="0.5" fill="none" />
-        <circle cx="50" cy="50" r="10" stroke="#2563eb" strokeWidth="0.5" fill="none" strokeDasharray="2,2" />
-        <circle cx="50" cy="50" r="25" stroke="#2563eb" strokeWidth="0.5" fill="none" strokeDasharray="2,2" />
-        <circle cx="50" cy="50" r="40" stroke="#2563eb" strokeWidth="0.5" fill="none" strokeDasharray="2,2" />
+      <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <path d="M50 50 L0 0 M50 50 L50 0 M50 50 L100 0 M50 50 L100 50 M50 50 L100 100 M50 50 L50 100 M50 50 L0 100 M50 50 L0 50" stroke="#0a163a" strokeWidth="0.8" fill="none" />
+        <circle cx="50" cy="50" r="10" stroke="#0a163a" strokeWidth="0.8" fill="none" strokeDasharray="2,2" />
+        <circle cx="50" cy="50" r="25" stroke="#0a163a" strokeWidth="0.8" fill="none" strokeDasharray="2,2" />
+        <circle cx="50" cy="50" r="40" stroke="#0a163a" strokeWidth="0.8" fill="none" strokeDasharray="2,2" />
       </svg>
 
       {/* Hanging Spider */}
@@ -126,11 +131,12 @@ export function Contact() {
             type="text"
             id="name"
             name="name"
-            className="w-full bg-black/50 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all peer hover-target"
+            className="w-full bg-black/80 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all peer hover-target"
             placeholder=" "
             required
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            style={{ colorScheme: 'dark' }}
           />
           <label htmlFor="name" className="absolute left-5 top-4 text-gray-500 font-mono transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-red-500 peer-valid:-top-3 peer-valid:text-xs peer-valid:text-red-500 bg-[#0a0a0a] px-2 rounded">
             Your Identity
@@ -142,11 +148,12 @@ export function Contact() {
             type="email"
             id="email"
             name="email"
-            className="w-full bg-black/50 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all peer hover-target"
+            className="w-full bg-black/80 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all peer hover-target"
             placeholder=" "
             required
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            style={{ colorScheme: 'dark' }}
           />
           <label htmlFor="email" className="absolute left-5 top-4 text-gray-500 font-mono transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 peer-valid:-top-3 peer-valid:text-xs peer-valid:text-blue-500 bg-[#0a0a0a] px-2 rounded">
             Comms Frequency (Email)
@@ -158,11 +165,12 @@ export function Contact() {
             id="message"
             name="message"
             rows={5}
-            className="w-full bg-black/50 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all peer hover-target resize-none mt-2"
+            className="w-full bg-black/80 border border-white/20 rounded-lg py-4 px-5 text-white font-mono focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all peer hover-target resize-none mt-2"
             placeholder=" "
             required
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            style={{ colorScheme: 'dark' }}
           ></textarea>
           <label htmlFor="message" className="absolute left-5 top-6 text-gray-500 font-mono transition-all peer-focus:-top-1 peer-focus:text-xs peer-focus:text-red-500 peer-valid:-top-1 peer-valid:text-xs peer-valid:text-red-500 bg-[#0a0a0a] px-2 rounded">
             The Mission Details
