@@ -10,6 +10,7 @@ import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Background3D } from './components/Background3D';
 import { CustomCursor } from './components/CustomCursor';
+import { ScrollProgress } from './components/ScrollProgress';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -41,13 +42,14 @@ export default function App() {
     <div className="bg-black text-white min-h-screen overflow-x-hidden selection:bg-red-600 selection:text-white font-sans">
       {loading && <Loader onComplete={() => setLoading(false)} />}
       
+      <ScrollProgress />
       <CustomCursor />
 
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 w-full z-40 px-6 py-4 mix-blend-difference pointer-events-none">
         <div className="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
           <div className="font-black font-display text-2xl tracking-tighter uppercase text-white">
-            chirag.DEv
+            Chirag.Dev
           </div>
           <div className="hidden md:flex gap-8 font-mono text-sm uppercase tracking-widest text-white">
             <a href="#home" className="hover:text-red-500 transition-colors hover-target">Home</a>
