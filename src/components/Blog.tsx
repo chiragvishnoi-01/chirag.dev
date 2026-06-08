@@ -85,6 +85,8 @@ export function Blog() {
                 <img 
                   src={article.image} 
                   alt={article.title} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0"
                 />
               </div>

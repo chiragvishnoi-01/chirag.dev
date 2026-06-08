@@ -118,10 +118,10 @@ export function About() {
           
           <div className="space-y-6 text-gray-400 font-mono text-sm md:text-base leading-relaxed">
             <p>
-              I'm a B.Tech 2nd-year student with a deep passion for web development. I love exploring and mastering all modern frameworks and technologies to build scalable digital solutions.
+              I'm a B.Tech student and an ambitious <strong>Full Stack Developer</strong> specializing in creating modern, scalable web solutions. As a dedicated <strong>React Developer</strong> and <strong>JavaScript Developer</strong>, I craft high-performance client-side interfaces.
             </p>
             <p>
-              As an AI-ready web developer, I integrate cutting-edge artificial intelligence capabilities into my projects, weaving complex digital webs with React, Three.js, and WordPress.
+              My backend capabilities as a <strong>Node.js Developer</strong> and database management skills as a <strong>MongoDB Developer</strong> enable me to build robust, end-to-end applications. This <strong>Web Developer Portfolio</strong> showcases how I integrate artificial intelligence, 3D graphics, and WordPress wizardry into the modern web ecosystem.
             </p>
             <p className="text-white border-l-2 border-red-500 pl-4 italic">
               "Building the future of the web, one mission at a time, with all modern tech stacks."
@@ -155,7 +155,7 @@ export function About() {
 
             {/* Profile Image Placeholder */}
             <div className="absolute top-16 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full border-4 border-black bg-zinc-800 overflow-hidden shadow-2xl">
-              <div className="w-full h-full bg-[url('https://github.com/chiragvishnoi-01.png')] bg-cover bg-center mix-blend-luminosity opacity-80"></div>
+              <div role="img" aria-label="Chirag Vishnoi Profile Picture" className="w-full h-full bg-[url('https://github.com/chiragvishnoi-01.png')] bg-cover bg-center mix-blend-luminosity opacity-80"></div>
               {/* Scanline effect */}
               <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none"></div>
             </div>

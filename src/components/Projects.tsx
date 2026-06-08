@@ -129,6 +129,8 @@ export function Projects() {
                 
                 {/* Background Image */}
                 <div 
+                  role="img"
+                  aria-label={`Project preview for ${project.title}`}
                   className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-80 transition-opacity duration-500 mix-blend-luminosity group-hover:mix-blend-normal"
                   style={{ backgroundImage: `url(${project.img})` }}
                 ></div>

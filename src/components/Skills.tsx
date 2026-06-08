@@ -8,9 +8,10 @@ const skills = [
   { name: 'JavaScript', x: 50, y: 20 },
   { name: 'TypeScript', x: 20, y: 40 },
   { name: 'React', x: 80, y: 40 },
-  { name: 'Three.js', x: 35, y: 70 },
-  { name: 'Node.js', x: 65, y: 70 },
-  { name: 'GSAP', x: 50, y: 90 },
+  { name: 'Three.js', x: 35, y: 65 },
+  { name: 'Node.js', x: 65, y: 65 },
+  { name: 'MongoDB', x: 50, y: 80 },
+  { name: 'GSAP', x: 50, y: 95 },
 ];
 
 export function Skills() {
@@ -111,12 +112,13 @@ export function Skills() {
             {/* Connect nodes */}
             <line x1="50%" y1="20%" x2="20%" y2="40%" stroke="rgba(220,38,38,0.4)" strokeWidth="2" />
             <line x1="50%" y1="20%" x2="80%" y2="40%" stroke="rgba(37,99,235,0.4)" strokeWidth="2" />
-            <line x1="20%" y1="40%" x2="35%" y2="70%" stroke="rgba(220,38,38,0.4)" strokeWidth="2" />
-            <line x1="80%" y1="40%" x2="65%" y2="70%" stroke="rgba(37,99,235,0.4)" strokeWidth="2" />
-            <line x1="35%" y1="70%" x2="50%" y2="90%" stroke="rgba(168,85,247,0.4)" strokeWidth="2" />
-            <line x1="65%" y1="70%" x2="50%" y2="90%" stroke="rgba(168,85,247,0.4)" strokeWidth="2" />
+            <line x1="20%" y1="40%" x2="35%" y2="65%" stroke="rgba(220,38,38,0.4)" strokeWidth="2" />
+            <line x1="80%" y1="40%" x2="65%" y2="65%" stroke="rgba(37,99,235,0.4)" strokeWidth="2" />
+            <line x1="35%" y1="65%" x2="50%" y2="80%" stroke="rgba(16,185,129,0.4)" strokeWidth="2" />
+            <line x1="65%" y1="65%" x2="50%" y2="80%" stroke="rgba(16,185,129,0.4)" strokeWidth="2" />
+            <line x1="50%" y1="80%" x2="50%" y2="95%" stroke="rgba(168,85,247,0.4)" strokeWidth="2" />
             <line x1="20%" y1="40%" x2="80%" y2="40%" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeDasharray="4,4" />
-            <line x1="35%" y1="70%" x2="65%" y2="70%" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeDasharray="4,4" />
+            <line x1="35%" y1="65%" x2="65%" y2="65%" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeDasharray="4,4" />
           </svg>
 
           {skills.map((skill, i) => (
